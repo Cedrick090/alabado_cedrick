@@ -4,10 +4,10 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 class Usersmodel extends Model {
     protected $table = 'students';
     protected $primary_key = 'id';
-    protected $allowed_fields = ['fname', 'lname', 'email'];
+    protected $allowed_fields = ['first_name', 'last_name', 'email'];
     protected $validation_rules = [
-        'lname' => 'required|min_length[2]|max_length[100]',
-        'fname' => 'required|min_length[2]|max_length[100]',
+    'last_name' => 'required|min_length[2]|max_length[100]',
+    'first_name' => 'required|min_length[2]|max_length[100]',
         'email' => 'required|valid_email|max_length[150]'
     ];
 
@@ -28,13 +28,13 @@ class Usersmodel extends Model {
             $query = $this->db->table($this->table);
 
             if (!empty($q)) {
-                // Grouped search: fname OR lname OR email
+                // Grouped search: first_name OR last_name OR email
                 // Use % wildcards for partial matching
                 $term = '%'. $q .'%';
                 // The database builder uses grouped(Closure) for grouped conditions.
                 $query->grouped(function($qb) use ($term) {
-                    $qb->like('fname', $term)
-                       ->or_like('lname', $term)
+                          $qb->like('first_name', $term)
+                              ->or_like('last_name', $term)
                        ->or_like('email', $term);
                 });
             }
