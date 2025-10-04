@@ -9,8 +9,8 @@ class StudentsModel extends Model {
         $builder = $this->db->table('students');
 
         if (!empty($q)) {
-            $builder->like('lname', $q)
-                    ->or_like('fname', $q)
+            $builder->like('last_name', $q)
+                    ->or_like('first_name', $q)
                     ->or_like('email', $q);
         }
 
