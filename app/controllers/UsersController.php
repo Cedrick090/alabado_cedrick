@@ -71,7 +71,10 @@ class UsersController extends Controller {
                 'email'      => $this->io->post('email')
             ];
 
-            if($this->UsersModel->insert($data)){
+            $id = $this->UsersModel->insert($data);
+            if($id){
+                // Optionally fetch the new user if you want to use it
+                // $user = $this->UsersModel->find($id);
                 redirect(site_url());
             }else{
                 echo "Error in creating user.";
