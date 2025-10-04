@@ -16,9 +16,8 @@ class AuthController extends Controller {
             $username = $this->io->post('username');
             $password = $this->io->post('password');
 
-            // Bypass DB: allow cedrick/cedrick
+            // Only allow cedrick/cedrick, no DB check
             if ($username === 'cedrick' && $password === 'cedrick') {
-                // Set session manually
                 $_SESSION['user'] = [
                     'id' => 1,
                     'username' => 'cedrick',
@@ -26,11 +25,6 @@ class AuthController extends Controller {
                 ];
                 redirect(site_url());
                 return;
-            }
-
-            // fallback to normal DB login for others
-            if ($this->Auth->login($username, $password)) {
-                redirect(site_url());
             } else {
                 $data['error'] = 'Invalid username or password';
                 $this->call->view('auth/login', $data);
