@@ -9,31 +9,59 @@
   <link rel="stylesheet" href="<?=base_url();?>/public/style.css">
 
   <style>
-    body { 
-      font-family: 'Inter', sans-serif; 
-      background: #f7fafc; /* light gray professional bg */
-      color: #2d3748; 
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f 0%, #0a3c2f 100%);
+      color: #d1fae5;
     }
-    table thead tr { background: #2b6cb0; } /* deep blue header */
-    .hp-page { 
-      padding: 6px 12px; 
-      background: #2b6cb0; 
-      border-radius: 6px; 
-      color: white; 
-      font-weight: 600; 
-      transition: 0.2s; 
+    table thead tr {
+      background: linear-gradient(90deg, #0f0f0f 60%, #059669 100%);
     }
-    .hp-page:hover { background: #2c5282; transform: translateY(-2px); }
-    .hp-current { 
-      padding: 6px 12px; 
-      background: #3182ce; 
-      border-radius: 6px; 
-      color: white; 
-      font-weight: 700; 
+    .hp-page {
+      padding: 6px 12px;
+      background: #059669;
+      border-radius: 6px;
+      color: #0f0f0f;
+      font-weight: 600;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px #022c22;
     }
-    .btn-hover:hover { 
-      transform: translateY(-2px); 
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+    .hp-page:hover {
+      background: #047857;
+      color: #d1fae5;
+      transform: translateY(-2px);
+    }
+    .hp-current {
+      padding: 6px 12px;
+      background: #064e3b;
+      border-radius: 6px;
+      color: #a7f3d0;
+      font-weight: 700;
+    }
+    .btn-hover {
+      background: linear-gradient(90deg, #059669 60%, #0f0f0f 100%);
+      color: #d1fae5;
+      font-weight: 600;
+      border: none;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px #022c22;
+    }
+    .btn-hover:hover {
+      background: linear-gradient(90deg, #047857 60%, #0f0f0f 100%);
+      color: #a7f3d0;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 6px 18px #022c22;
+    }
+    .table-row {
+      background: rgba(15, 23, 42, 0.7);
+      border-bottom: 1px solid #059669;
+      transition: background 0.2s;
+    }
+    .table-row:hover {
+      background: #064e3b;
+    }
+    .table-cell {
+      color: #d1fae5;
     }
   </style>
 </head>
@@ -72,10 +100,10 @@
       </div>
 
       <!-- Table -->
-      <div class="overflow-x-auto rounded-lg border border-gray-200 shadow">
+      <div class="overflow-x-auto rounded-lg border border-green-900 shadow-lg">
         <table class="w-full text-center border-collapse">
           <thead>
-            <tr class="text-white uppercase tracking-wide text-sm">
+            <tr class="uppercase tracking-wide text-sm">
               <th class="py-3 px-4">ID</th>
               <th class="py-3 px-4">First Name</th>
               <th class="py-3 px-4">Last Name</th>
@@ -83,22 +111,23 @@
               <th class="py-3 px-4">Action</th>
             </tr>
           </thead>
-          <tbody class="text-gray-700 text-sm">
+          <tbody>
             <?php if(!empty($users)): ?>
               <?php foreach(html_escape($users) as $user): ?>
-                <tr class="hover:bg-gray-100 transition">
-                  <td class="py-3 px-4 font-medium"><?=($user['id']);?></td>
-                  <td class="py-3 px-4"><?=($user['first_name']);?></td>
-                  <td class="py-3 px-4"><?=($user['last_name']);?></td>
-                  <td class="py-3 px-4"><?=($user['email']);?></td>
+                <tr class="table-row">
+                  <td class="py-3 px-4 font-medium table-cell"><?=($user['id']);?></td>
+                  <td class="py-3 px-4 table-cell"><?=($user['first_name']);?></td>
+                  <td class="py-3 px-4 table-cell"><?=($user['last_name']);?></td>
+                  <td class="py-3 px-4 table-cell"><?=($user['email']);?></td>
                   <td class="py-3 px-4 flex justify-center gap-3">
                     <?php if (!empty($current_user) && ($current_user['role'] ?? '') === 'admin'): ?>
                     <a href="<?=site_url('users/update/'.$user['id']);?>"
-                       class="btn-hover bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-md shadow flex items-center gap-1">
+                       class="btn-hover px-3 py-1 rounded-md shadow flex items-center gap-1">
                       <i class="fa-solid fa-pen-to-square"></i> Update
                     </a>
                     <a href="<?=site_url('users/delete/'.$user['id']);?>"
-                       class="btn-hover bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md shadow flex items-center gap-1">
+                       class="btn-hover px-3 py-1 rounded-md shadow flex items-center gap-1"
+                       style="background: linear-gradient(90deg, #dc2626 60%, #0f0f0f 100%); color: #fff;">
                       <i class="fa-solid fa-trash"></i> Delete
                     </a>
                     <?php endif; ?>
@@ -106,7 +135,7 @@
                 </tr>
               <?php endforeach; ?>
             <?php else: ?>
-              <tr><td colspan="5" class="py-4 text-gray-500">No students found</td></tr>
+              <tr><td colspan="5" class="py-4 text-green-900">No students found</td></tr>
             <?php endif; ?>
           </tbody>
         </table>
