@@ -112,57 +112,13 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     </style>
 </head>
 <body>
-        <div class="container" style="background: linear-gradient(135deg, #0f0f0f 0%, #0a3c2f 100%); color: #d1fae5;">
-                <div class="header" style="background: linear-gradient(90deg, #0f0f0f 60%, #059669 100%); color: #d1fae5;">
-                        <h1 style="font-size:2.5rem; font-weight:900; letter-spacing:2px;">HR Portal</h1>
-                        <p style="font-size:1.2rem;">Moody Black-Green Gradient Demo</p>
-                </div>
+    <div class="container">
+        <div class="header">
+            <h1>🔥 LavaLust Framework</h1>
+            <p>Lightweight • Fast • MVC for PHP Developers</p>
+        </div>
 
-                <div class="main" style="padding:2rem;">
-                    <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-bottom:2.5rem;">
-                        <!-- Login Form -->
-                        <div class="card" style="background:rgba(15,23,42,0.85);border:1px solid #059669;padding:2rem;border-radius:1rem;box-shadow:0 4px 24px #022c22;">
-                            <h2 style="color:#6ee7b7;font-size:1.5rem;font-weight:700;margin-bottom:1.5rem;text-align:center;">Sign In</h2>
-                            <form action="<?= site_url('login') ?>" method="POST" class="space-y-6">
-                                <div>
-                                    <label class="block text-green-200 font-semibold mb-1">Username</label>
-                                    <input type="text" name="username" required class="w-full border border-green-700 bg-black/70 text-green-100 p-3 rounded focus:ring-2 focus:ring-green-500">
-                                </div>
-                                <div>
-                                    <label class="block text-green-200 font-semibold mb-1">Password</label>
-                                    <input type="password" name="password" required class="w-full border border-green-700 bg-black/70 text-green-100 p-3 rounded focus:ring-2 focus:ring-green-500">
-                                </div>
-                                <div>
-                                    <button type="submit" class="w-full bg-gradient-to-r from-green-700 to-green-500 text-black font-bold py-3 rounded-lg shadow-lg hover:from-green-600 hover:to-green-400 transition text-lg tracking-wide flex items-center justify-center gap-2">
-                                        <i class="fa-solid fa-right-to-bracket"></i> Sign in
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Sign Up Form -->
-                        <div class="card" style="background:rgba(15,23,42,0.85);border:1px solid #059669;padding:2rem;border-radius:1rem;box-shadow:0 4px 24px #022c22;">
-                            <h2 style="color:#6ee7b7;font-size:1.5rem;font-weight:700;margin-bottom:1.5rem;text-align:center;">Sign Up</h2>
-                            <form action="<?= site_url('signup') ?>" method="POST" class="space-y-6">
-                                <div>
-                                    <label class="block text-green-200 font-semibold mb-1">First Name</label>
-                                    <input type="text" name="first_name" required class="w-full border border-green-700 bg-black/70 text-green-100 p-3 rounded focus:ring-2 focus:ring-green-500">
-                                </div>
-                                <div>
-                                    <label class="block text-green-200 font-semibold mb-1">Last Name</label>
-                                    <input type="text" name="last_name" required class="w-full border border-green-700 bg-black/70 text-green-100 p-3 rounded focus:ring-2 focus:ring-green-500">
-                                </div>
-                                <div>
-                                    <label class="block text-green-200 font-semibold mb-1">Email</label>
-                                    <input type="email" name="email" required class="w-full border border-green-700 bg-black/70 text-green-100 p-3 rounded focus:ring-2 focus:ring-green-500">
-                                </div>
-                                <div>
-                                    <button type="submit" class="w-full bg-gradient-to-r from-green-700 to-green-500 text-black font-bold py-3 rounded-lg shadow-lg hover:from-green-600 hover:to-green-400 transition text-lg tracking-wide flex items-center justify-center gap-2">
-                                        <i class="fa-solid fa-user-plus"></i> Sign up
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+        <div class="main">
             <h2>What is LavaLust?</h2>
             <p><strong>LavaLust</strong> is a lightweight PHP framework that follows the MVC (Model–View–Controller) pattern. It's designed for developers who want a structured yet minimalistic PHP development experience.</p>
 

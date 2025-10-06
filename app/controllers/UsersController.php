@@ -1,23 +1,3 @@
-    // Public sign-up for students (not admin)
-    function signup() {
-        if ($this->io->method() == 'post') {
-            $data = [
-                'first_name' => $this->io->post('first_name'),
-                'last_name'  => $this->io->post('last_name'),
-                'email'      => $this->io->post('email')
-            ];
-            $id = $this->UsersModel->insert($data);
-            if ($id) {
-                // Optionally, show a success message or redirect
-                redirect(site_url());
-            } else {
-                echo "Error in signing up.";
-            }
-        } else {
-            // Show the sign-up form (not used, since form is on front page)
-            redirect(site_url());
-        }
-    }
 
 <?php
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
